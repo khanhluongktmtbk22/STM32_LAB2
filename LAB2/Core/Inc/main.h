@@ -55,10 +55,13 @@ void Error_Handler(void);
 
 /* USER CODE BEGIN EFP */
 void initEx1();
+void initEx2();
 void display7SEG(int num);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define DOT_Pin GPIO_PIN_4
+#define DOT_GPIO_Port GPIOA
 #define LED_RED_Pin GPIO_PIN_5
 #define LED_RED_GPIO_Port GPIOA
 #define EN0_Pin GPIO_PIN_6
@@ -71,6 +74,10 @@ void display7SEG(int num);
 #define SEG_1_GPIO_Port GPIOB
 #define SEG_2_Pin GPIO_PIN_2
 #define SEG_2_GPIO_Port GPIOB
+#define EN2_Pin GPIO_PIN_8
+#define EN2_GPIO_Port GPIOA
+#define EN3_Pin GPIO_PIN_9
+#define EN3_GPIO_Port GPIOA
 #define SEG_3_Pin GPIO_PIN_3
 #define SEG_3_GPIO_Port GPIOB
 #define SEG_4_Pin GPIO_PIN_4
