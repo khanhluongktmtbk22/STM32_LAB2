@@ -57,8 +57,10 @@ void Error_Handler(void);
 void initEx1();
 void initEx2();
 void initEx3();
+void initEx5();
 void display7SEG(int num);
 void update7SEG(int index);
+void updateClockBuffer();
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/

@@ -1,0 +1,11 @@
+diff a/LAB2/Core/Inc/main.h b/LAB2/Core/Inc/main.h	(rejected hunks)
+@@ -56,7 +56,9 @@
+ /* USER CODE BEGIN EFP */
+ void initEx1();
+ void initEx2();
++void initEx3();
+ void display7SEG(int num);
++void update7SEG(int index);
+ /* USER CODE END EFP */
+ 
+ /* Private defines -----------------------------------------------------------*/

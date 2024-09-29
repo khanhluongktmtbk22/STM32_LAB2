@@ -47,6 +47,7 @@ int status = 0;
 const int MAX_LED = 4;
 int index_led = 0;
 int led_buffer [4] = {1, 2, 3, 4};
+int hour = 15, minute = 8, second = 50;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -102,9 +103,11 @@ setTimer(1, 70);
 setTimer(2, 57);
 setTimer(3, 9);
 setTimer(4, 22);
+setTimer(5, 17);
 //initEx1();
 //initEx2();
 //initEx3();
+//initEx5();
   while (1)
   {
 	  //Init BLINKY
@@ -187,6 +190,23 @@ setTimer(4, 22);
 	  if(timer_flag[4] == 1){
 		  setTimer(4, 100);
 		  HAL_GPIO_TogglePin(DOT_GPIO_Port, DOT_Pin);
+	  }
+	  //EX5
+	  if(timer_flag[5] == 1){
+		  setTimer(5, 100);
+		  second++;
+		  if ( second >= 60) {
+		  second = 0;
+		  minute ++;
+		  }
+		  if( minute >= 60) {
+		  minute = 0;
+		  hour ++;
+		  }
+		  if( hour >=24){
+		  hour = 0;
+		  }
+		  updateClockBuffer ();
 	  }
     /* USER CODE END WHILE */
 
@@ -328,7 +348,6 @@ void initEx1(){
 }
 void initEx2(){
 	  status = 0;
-	  HAL_GPIO_WritePin(DOT_GPIO_Port, DOT_Pin, RESET);
 	  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
 	  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
 	  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
@@ -336,6 +355,12 @@ void initEx2(){
 	  display7SEG(1);
 }
 void initEx3(){
+	  HAL_GPIO_WritePin(EN0_GPIO_Port, EN0_Pin, RESET);
+	  HAL_GPIO_WritePin(EN1_GPIO_Port, EN1_Pin, SET);
+	  HAL_GPIO_WritePin(EN2_GPIO_Port, EN2_Pin, SET);
+	  HAL_GPIO_WritePin(EN3_GPIO_Port, EN3_Pin, SET);
+}
+void initEx5(){
 
 }
 void display7SEG(int num){
@@ -469,6 +494,12 @@ void update7SEG(int index){
 			display7SEG(led_buffer[0]);
 		break ;
 	}
+}
+void updateClockBuffer(){
+	led_buffer[0] = hour/10;
+	led_buffer[1] = hour%10;
+	led_buffer[2] = minute/10;
+	led_buffer[3] = minute%10;
 }
 /* USER CODE END 4 */
 
