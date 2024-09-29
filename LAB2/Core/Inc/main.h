@@ -56,9 +56,7 @@ void Error_Handler(void);
 /* USER CODE BEGIN EFP */
 void initEx1();
 void initEx2();
-void initEx3();
 void display7SEG(int num);
-void update7SEG(int index);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
