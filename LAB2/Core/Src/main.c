@@ -109,7 +109,8 @@ setTimer(2, 57);
 setTimer(3, 9);
 setTimer(4, 22);
 setTimer(5, 17);
-setTimer(6, 39);
+setTimer(6, 11);
+setTimer(7, 80);
 //initEx1();
 //initEx2();
 //initEx3();
@@ -215,12 +216,21 @@ setTimer(6, 39);
 		  updateClockBuffer ();
 	  }
 	  //EX9
+	  if(timer_fla[7] == 1){
 	  if(timer_flag[6] == 1){
 		  setTimer(6, 2);
 		  if(index_led_matrix >= MAX_LED_MATRIX || index_led_matrix < 0){
 			  index_led_matrix = 0;
 		  }
 		  updateLEDMatrix(index_led_matrix++);
+	  }
+	  }
+	  //EX10
+	  if(timer_flag[7] == 1){
+		  setTimer(7, 80);
+		  for(int i = 0; i < MAX_LED_MATRIX; i++){
+			  matrix_buffer[i] = matrix_buffer[(i+1)%8];
+		  }
 	  }
     /* USER CODE END WHILE */
 
